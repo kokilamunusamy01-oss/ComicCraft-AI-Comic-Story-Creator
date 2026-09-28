@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ title }} - ComicCraft</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <section class="hero">
+        <p class="eyebrow">YOUR AI-GENERATED COMIC</p>
+
+        <h1>{{ title }}</h1>
+
+        <p>
+            Your story has been transformed into a comic!
+        </p>
+    </section>
+
+
+    <section class="comic-grid">
+
+        {% for panel in layout %}
+
+        <article class="comic-panel">
+
+            <div class="panel-header">
+                <span>
+                    Panel {{ panel.panel_number }}
+                </span>
+
+                <h2>
+                    {{ panel.title }}
+                </h2>
+            </div>
+
+
+            {% if panel.image_path %}
+
+            <img
+                src="{{ panel.image_path }}"
+                alt="Comic panel {{ panel.panel_number }}"
+                class="comic-image"
+            >
+
+            {% endif %}
+
+
+            {% if panel.scene_description %}
+
+            <p class="scene">
+                {{ panel.scene_description }}
+            </p>
+
+            {% endif %}
+
+
+            {% if panel.caption %}
+
+            <p>
+                <strong>Caption:</strong>
+                {{ panel.caption }}
+            </p>
+
+            {% endif %}
+
+
+            {% if panel.narration %}
+
+            <p>
+                <strong>Narration:</strong>
+                {{ panel.narration }}
+            </p>
+
+            {% endif %}
+
+
+            {% if panel.dialogue %}
+
+            <p class="dialogue">
+                <strong>Dialogue:</strong>
+                "{{ panel.dialogue }}"
+            </p>
+
+            {% endif %}
+
+        </article>
+
+        {% endfor %}
+
+    </section>
+
+
+    <section class="actions">
+
+        <a
+            href="{{ pdf_url }}"
+            target="_blank"
+            class="button"
+        >
+            📄 Download Comic PDF
+        </a>
+
+        <a
+            href="/"
+            class="button secondary"
+        >
+            ← Create Another Comic
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>

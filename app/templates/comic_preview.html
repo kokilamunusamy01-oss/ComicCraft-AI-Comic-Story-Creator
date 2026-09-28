@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {{ title }} - ComicCraft
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<main class="container">
+
+
+    <div class="topbar">
+
+        <a href="/">
+            ← Create Another Comic
+        </a>
+
+        <a
+            class="button-link"
+            href="{{ pdf_url }}"
+            download
+        >
+            Download PDF
+        </a>
+
+    </div>
+
+
+    <h1>
+        {{ title }}
+    </h1>
+
+
+    {% for panel in layout %}
+
+    <article class="card panel">
+
+
+        <h2>
+
+            Panel {{ panel.panel_number }}:
+
+            {{ panel.title }}
+
+        </h2>
+
+
+        <img
+            src="{{ panel.image_path }}"
+            alt="Comic panel {{ panel.panel_number }}"
+        >
+
+
+        <p class="scene">
+
+            <em>
+                {{ panel.scene_description }}
+            </em>
+
+        </p>
+
+
+        {% if panel.caption %}
+
+        <p>
+
+            <strong>
+                Caption:
+            </strong>
+
+            {{ panel.caption }}
+
+        </p>
+
+        {% endif %}
+
+
+        {% if panel.narration %}
+
+        <p>
+
+            <strong>
+                Narration:
+            </strong>
+
+            {{ panel.narration }}
+
+        </p>
+
+        {% endif %}
+
+
+        {% if panel.dialogue %}
+
+        <p>
+
+            <strong>
+                Dialogue:
+            </strong>
+
+            {{ panel.dialogue }}
+
+        </p>
+
+        {% endif %}
+
+
+        <details>
+
+            <summary>
+                Image Prompt
+            </summary>
+
+            <p>
+                {{ panel.image_prompt }}
+            </p>
+
+        </details>
+
+
+    </article>
+
+    {% endfor %}
+
+
+    <div class="center">
+
+        <a
+            class="button-link"
+            href="{{ pdf_url }}"
+            download
+        >
+            Download Your Comic as PDF
+        </a>
+
+    </div>
+
+
+</main>
+
+</body>
+
+</html>

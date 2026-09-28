@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Comic is Ready - ComicCraft</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<main class="container">
+
+    <section class="hero">
+
+        <p class="eyebrow">
+            COMICCRAFT
+        </p>
+
+        <h1>
+            🎉 Your Comic is Ready!
+        </h1>
+
+        <p>
+            Your AI-generated comic has been successfully created.
+        </p>
+
+    </section>
+
+    <section class="card" style="text-align:center;">
+
+        <h2>
+            📚 {{ title }}
+        </h2>
+
+        <p>
+            Your comic is ready to download.
+        </p>
+
+        <br>
+
+        <a
+            href="{{ pdf_url }}"
+            class="button"
+            download
+        >
+            📥 Download ComicCraft
+        </a>
+
+        <br><br>
+
+        <a
+            href="/"
+            class="button secondary"
+        >
+            ← Create Another Comic
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>
